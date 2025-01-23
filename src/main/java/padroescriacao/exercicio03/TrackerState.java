@@ -1,12 +1,16 @@
 package padroescriacao.exercicio03;
 
+/**
+ * Classe abstrata que representa o estado do Tracker.
+ */
 public abstract class TrackerState {
     protected Tracker tracker;
+    protected TrackerStateFactory stateFactory;
 
-    public TrackerState(Tracker tracker) {
+    public TrackerState(Tracker tracker, TrackerStateFactory stateFactory) {
         this.tracker = tracker;
+        this.stateFactory = stateFactory;
     }
-
 
     public boolean initialize() {
         return false;
@@ -35,7 +39,6 @@ public abstract class TrackerState {
     public boolean switchToAI() {
         return false;
     }
-
 
     public String getStateName() {
         return this.getClass().getSimpleName();
